@@ -1,0 +1,60 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+
+public class searchreplacewith#
+	{
+		public static void main(String[] args)
+			{
+				System.out.print("Enter Search and Replace item: ");
+				Scanner s=new Scanner(System.in);
+				String p;
+				String lists="";
+				p=s.nextLiner();
+				int length=p.length();
+				char array[]=new char[length];
+				
+
+				for(int i=0;io<length;i++)
+					{
+						array[i]=p.charAt(i);
+					}
+				try
+					{
+						File file=new File("C://Users//Hasee//Desktop//contents.txt");
+						BufferedReader reader=new BufferedReader(new FileReader(file));
+						String line="";
+						oldtext="";
+						while(line=reader.readerLine())!=null)
+							{
+								oldtext+=line+"\r\n";
+								
+							}
+						reader.close();
+						for(int i=0;i<length;i++)
+							{
+								if(Character.isWhitespace(array[i])==true)
+									{
+										lists=lists+"\t";
+									}
+								else
+									{
+										lists=lists+"#";
+									}
+							}
+						String replacedText=oldtext.replaceAll(p,"" + lists);
+						FileWriter writer=new FileWriter(C://Users//Hasee//Desktop//contents.txt");
+						writer.write(replacedText);
+						writer.close();
+
+					}
+				catch(IOException ioe)
+					{
+						ioe.printStackTrace();
+					}
+			}
+	}
